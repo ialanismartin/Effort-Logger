@@ -4,11 +4,7 @@ Effort Logger is a program that logs the effort of company employees. This data 
 Group members:
 
 Italia Alanis
-
 Buthaina Alassafi
-
 Karen Garcia
-
 Vincent Dang
-
 Aditi Kelwalker
