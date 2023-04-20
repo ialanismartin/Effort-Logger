@@ -2,12 +2,6 @@
 
 import java.util.*;
 
-/*
- * METHODS
- * constructor
- * createNewLog()
- * to_String()
- */
 
 public class Log {
     public String title;

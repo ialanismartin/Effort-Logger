@@ -1,21 +1,16 @@
 //this class defines an Employee, which will be the primary object of the hashtable. The secondary object(s) are the logs
 
 import java.util.*;
-/*
- * METHODS
- * constructor
- * createNewEmployee()
- * 
- * to_String()
- */
 
 import javax.security.sasl.SaslException;
 
 public class Employee {
     public String firstName, lastName;
+    public String techPosition;
     public int id;
     public double salary;
-    public String techPosition;
+    public boolean isManager;  //if true, can access certain pages and create an employee
+    public List<Log> employeesLogs; //pointer to a list of that employee's logs
 
 
     public Employee(){
@@ -24,7 +19,12 @@ public class Employee {
         this.id = -1;
         this.salary = -1.0;
         this.techPosition = null;
+        this.isManager = false;
+        this.employeesLogs = null;
+
     }
+
+    //this constructor does not include inManager and EMployeesLogs fields
     public Employee(String firstName, String lastName, String techPosition, int id, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;

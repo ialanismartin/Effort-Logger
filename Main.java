@@ -94,17 +94,19 @@ public class Main {
         Log emptyLog = new Log();
         anEmployeesLogs.add(emptyLog.createNewLog());
 
+        //add this list of logs as an employee's attribute
+        anEmployee.employeesLogs = anEmployeesLogs;
 
         //add that log to that employee and place in db. will need to create 
         EffortLoggerDatabase.put(anEmployee, anEmployeesLogs);   //also exists: putIfAbsent() if want to check existence
 
         EffortLoggerDatabase.entrySet();
 
-        System.out.println("are we here yet");
+        System.out.println("\n Printed Logs: \n");
 
         for (Employee e : EffortLoggerDatabase.keySet()){
             System.out.println(e.toString());
-            for (Log l : anEmployeesLogs){
+            for (Log l : e.employeesLogs){
                 System.out.println(l.toString());
             }
         }
