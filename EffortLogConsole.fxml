@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fafff0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EffortLogConsole">
+   <children>
+      <Label fx:id="titleLabel" layoutX="284.0" layoutY="14.0" prefHeight="60.0" prefWidth="379.0" text="Effort Log Console" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="projectLabel" layoutX="29.0" layoutY="81.0" text="Project" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="projectBox" layoutX="29.0" layoutY="107.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="lifeCycleBox" layoutX="663.0" layoutY="107.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="categoryBox" layoutX="29.0" layoutY="239.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="storyPointsBox" layoutX="663.0" layoutY="384.0" prefWidth="227.0" />
+      <Label fx:id="categoryLabel" layoutX="29.0" layoutY="213.0" text="Category" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lifeCycleLabel" layoutX="663.0" layoutY="81.0" text="Life Cycle Step" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="storyPointsLabel" layoutX="660.0" layoutY="358.0" text="Story Points" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="makeEffortLogBtn" layoutX="374.0" layoutY="647.0" mnemonicParsing="false" onAction="#makeEffortLog" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #036827;" text="Make Effort Log" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="mainMenuBtn" layoutX="834.0" layoutY="647.0" mnemonicParsing="false" onAction="#mainMenuScene" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #036827;" text="Main Menu" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="effortLogBtn" layoutX="29.0" layoutY="647.0" mnemonicParsing="false" onAction="#effortLogScene" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #036827;" text="Effort Log " textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="userStoryLabel" layoutX="29.0" layoutY="358.0" prefHeight="26.0" prefWidth="96.0" text="User Story" textFill="#036827">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextArea fx:id="userStoryTextArea" layoutX="29.0" layoutY="388.0" prefHeight="100.0" prefWidth="435.0" />
+      <Label fx:id="deliverableLabel" layoutX="663.0" layoutY="213.0" text="Deliverable" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="deliverableBox" layoutX="663.0" layoutY="239.0" prefWidth="227.0" />
+   </children>
+   <effect>
+      <Glow />
+   </effect>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

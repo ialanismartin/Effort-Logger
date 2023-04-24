@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fafff0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DefectLogConsole">
+   <children>
+      <Label fx:id="titleLabel" layoutX="341.0" layoutY="14.0" prefHeight="60.0" prefWidth="319.0" text="Defect Console" textAlignment="JUSTIFY" textFill="#036827">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="projectLabel" layoutX="29.0" layoutY="102.0" text="Project" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="projectBox" layoutX="29.0" layoutY="128.0" prefWidth="227.0" />
+      <Button fx:id="defectLogBtn" layoutX="29.0" layoutY="647.0" mnemonicParsing="false" onAction="#defectLogScene" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Defect Log" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="mainMenuBtn" layoutX="818.0" layoutY="647.0" mnemonicParsing="false" onAction="#mainMenuScene" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Main Menu" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="defectNameLabel" layoutX="403.0" layoutY="102.0" text="Existing Defect Name" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="defectNameBox" layoutX="403.0" layoutY="128.0" prefWidth="227.0" />
+      <Label fx:id="descriptionLabel" layoutX="29.0" layoutY="216.0" text="Defect Description" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="defectDescriptionTextArea" layoutX="29.0" layoutY="242.0" prefHeight="118.0" prefWidth="487.0" />
+      <Label fx:id="statusLabel" layoutX="759.0" layoutY="262.0" text="Status" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="injectionStepsLabel" layoutX="29.0" layoutY="431.0" text="Step When Injected" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="resolvedStepsLabel" layoutX="403.0" layoutY="431.0" text="Step When Resolved" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="defectCategoryLabel" layoutX="759.0" layoutY="431.0" text="Defect Category" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="injectionStepsBox" layoutX="29.0" layoutY="457.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="resolvedStepsBox" layoutX="403.0" layoutY="457.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="defectCategoryBox" layoutX="759.0" layoutY="457.0" prefWidth="227.0" />
+      <Button fx:id="deleteDefectBtn" layoutX="29.0" layoutY="537.0" mnemonicParsing="false" onAction="#deleteDefectLog" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Delete Defect" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="clearDefectsBtn" layoutX="422.0" layoutY="647.0" mnemonicParsing="false" onAction="#clearDefectLog" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Clear Defect" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateDefectBtn" layoutX="818.0" layoutY="537.0" mnemonicParsing="false" onAction="#updateDefectLog" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Update Defect" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="statusBox" layoutX="759.0" layoutY="295.0" prefHeight="26.0" prefWidth="227.0" />
+      <Label fx:id="newDefectNameLabel" layoutX="759.0" layoutY="102.0" prefHeight="26.0" prefWidth="164.0" text="New Defect Name" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="deleteDefectBtn" layoutX="421.0" layoutY="537.0" mnemonicParsing="false" onAction="#makeDefectLog" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Make Defect" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="newDefectTextField" layoutX="759.0" layoutY="128.0" prefHeight="26.0" prefWidth="227.0" />
+   </children>
+</AnchorPane>

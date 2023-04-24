@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fafff0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EmployeeSignUp">
+   <children>
+      <Label fx:id="titleLabel" layoutX="262.0" layoutY="14.0" prefHeight="60.0" prefWidth="477.0" text="New Employee Sign Up" textFill="#036827">
+         <font>
+            <Font name="System Italic" size="48.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameTextField" layoutX="388.0" layoutY="282.0" prefWidth="227.0" />
+      <TextField fx:id="passwordTextField" layoutX="387.0" layoutY="341.0" prefWidth="227.0" />
+      <Label fx:id="usernameLabel" layoutX="387.0" layoutY="256.0" text="Password" textFill="#036827">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="passwordLabel" layoutX="387.0" layoutY="315.0" text="Job Title" textFill="#036827">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="jobTitleLabel" layoutX="387.0" layoutY="200.0" text="Username" textFill="#036827">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Button fx:id="signUpBtn" layoutX="442.0" layoutY="409.0" maxWidth="200.0" mnemonicParsing="false" onAction="#userSignUp" prefHeight="26.0" prefWidth="117.0" style="-fx-background-color: #036827;" text="Sign Up" textFill="#fafff0">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="managerMenuBtn" layoutX="422.0" layoutY="461.0" mnemonicParsing="false" onAction="#managerMenuScene" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #036827;" text="Manager Menu" textFill="#fafff0">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <TextField fx:id="jobTitleTextField" layoutX="387.0" layoutY="226.0" prefWidth="227.0" />
+   </children>
+   <effect>
+      <Glow />
+   </effect>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

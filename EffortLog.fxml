@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fafff0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EffortLog">
+   <children>
+      <Label fx:id="titleLabel" layoutX="399.0" layoutY="14.0" prefHeight="60.0" prefWidth="203.0" text="Effort Log" textAlignment="JUSTIFY" textFill="#036827">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <TableView fx:id="effortLogTable" layoutX="14.0" layoutY="165.0" prefHeight="522.0" prefWidth="972.0">
+        <columns>
+          <TableColumn fx:id="projectColumn" prefWidth="105.0" resizable="false" text="Project" />
+          <TableColumn fx:id="lifeCycleColumn" prefWidth="119.0" text="Life Cycle" />
+            <TableColumn fx:id="categoryColumn" prefWidth="119.0" text="Category" />
+            <TableColumn fx:id="deliverableColumn" prefWidth="119.0" text="Deliverable" />
+            <TableColumn fx:id="pointsColumnn" prefWidth="85.0" text="Story Points" />
+            <TableColumn fx:id="userStoryColumn" prefWidth="424.0" text="User Story" />
+        </columns>
+      </TableView>
+      <Label fx:id="filterLabel" layoutX="14.0" layoutY="96.0" text="Filter" textFill="#036827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="filterBox" layoutX="14.0" layoutY="118.0" prefHeight="26.0" prefWidth="227.0" />
+      <Label fx:id="searchLabel" layoutX="420.0" layoutY="93.0" text="Search" textFill="#036827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchTextField" layoutX="420.0" layoutY="118.0" prefHeight="26.0" prefWidth="227.0" />
+      <Button fx:id="mainMenuBtn" layoutX="836.0" layoutY="99.0" mnemonicParsing="false" onAction="#mainMenuScene" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Main Menu" textFill="#fafff0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fafff0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Definitions">
+   <children>
+      <Label fx:id="titleLabel" layoutX="364.0" layoutY="29.0" prefHeight="60.0" prefWidth="218.0" text="Definitions" textAlignment="JUSTIFY" textFill="#036827">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <TableView fx:id="projectTableView" layoutX="30.0" layoutY="96.0" prefHeight="282.0" prefWidth="170.0">
+        <columns>
+          <TableColumn fx:id="projectColumn" prefWidth="169.0" text="Project Names" />
+        </columns>
+      </TableView>
+      <TableView fx:id="lifeCycleTableView" layoutX="279.0" layoutY="96.0" prefHeight="282.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="lifeCycleColumn" prefWidth="169.0" text="Life Cycle Steps" />
+         </columns>
+      </TableView>
+      <TableView fx:id="effortCategoryTableView" layoutX="543.0" layoutY="96.0" prefHeight="282.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="effortCategoryColumn" prefWidth="169.0" text="Effort Categories" />
+         </columns>
+      </TableView>
+      <TableView fx:id="plansTableView" layoutX="798.0" layoutY="96.0" prefHeight="282.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="planColumn" prefWidth="169.0" text="Plans" />
+         </columns>
+      </TableView>
+      <TableView fx:id="deliverablesTableView" layoutX="30.0" layoutY="401.0" prefHeight="282.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="deliverableColumn" prefWidth="169.0" text="Deliverables" />
+         </columns>
+      </TableView>
+      <TableView fx:id="interruptionsTableView" layoutX="279.0" layoutY="401.0" prefHeight="282.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="interruptionsColumn" prefWidth="169.0" text="Interruptions" />
+         </columns>
+      </TableView>
+      <TableView fx:id="defectCategoryTableView" layoutX="543.0" layoutY="401.0" prefHeight="282.0" prefWidth="170.0">
+         <columns>
+            <TableColumn fx:id="defectCategoryColumn" prefWidth="169.0" text="Defect Categories" />
+         </columns>
+      </TableView>
+      <Button fx:id="mainMenuBtn" layoutX="798.0" layoutY="523.0" mnemonicParsing="false" onAction="#mainMenuScene" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #036827;" text="Main Menu" textFill="#fafff0">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
