@@ -31,7 +31,7 @@ public class DefectLogs extends Log {
     }
 
 
-    public DefectLogs editLog(String projTitle, String defectName, String category, String defectDescription, String status, String stepInjected, String stepResolved){
+    public static DefectLogs editLog(String projTitle, String defectName, String category, String defectDescription, String status, String stepInjected, String stepResolved){
         DefectLogs updatedLog = new DefectLogs(projTitle, defectName, category, defectDescription, status, stepInjected, stepResolved);
         return updatedLog;
     }

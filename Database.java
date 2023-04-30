@@ -38,6 +38,7 @@ public class Database {
     }
     
     // this search method returns an effort log that lines up with a specific log name (not employee name, the name of the log entry) -AK
+    // used in deleteEffort() method
     public EffortLogs findEffortLog(Employee employee, String logName)
     {
     	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
@@ -51,9 +52,36 @@ public class Database {
     				return log;
     			}
     		}
-    		return null; //if there is are no logs with the name that we want, returns null
+    		return null; //if there is are no logs with the logName that we want, returns null
     	}
     	return null; //if there is no employee with the username we want, returns null
+    }
+    
+    
+    
+    //finds the index in the EffortLog list of an effort log that lines up with a specific logName -AK
+    public int findEffortLogIndex(Employee employee, String logName)
+    {
+    	int index = 0;
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	if (findLogList != null)
+    	{
+    		while (index < findLogList.size() && findLogList.get(index).returnName() != logName)
+    		{
+    			index++;
+    		}
+    		if (findLogList.get(index).returnName() == logName) //if while loop gets to last element, but that element isnt the one we want
+    		{
+    			return index;
+    		}
+    		else
+    		{
+    			return -1;
+    		}
+    		
+    	}
+
+    	return -1;
     }
     
     // creating the filter function in the effort log console - AK
@@ -120,15 +148,52 @@ public class Database {
     	return average;
     }
     
-    //working on this
+    //returns a String array of names ->used in the effort log editor drop down -AK
+    //need to figure out what to do if there are no entries in the effort log list
+    public String[] getLogNames(Employee employee)
+    {
+    	String[] logNameArray = null;
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	if (findLogList != null)
+    	{
+    		logNameArray = new String[findLogList.size()];
+    		for (int i = 0; i < findLogList.size(); i++)
+    		{
+    			logNameArray[i] = findLogList.get(i).returnName();
+    		}
+    	}
+    	return logNameArray;
+    }
+    
+    //finds the index of the log that needs to be edited and replaces the old log with an edited version -AK
+    public void editEffortLog(Employee employee, String logName, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints)
+    {
+    	int index = findEffortLogIndex(employee, logName);
+    	if (index != 1)
+    	{
+    		List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    		EffortLogs newLog = EffortLogs.editLog(logName, projTitle, lifeCycle, category, deliverable, userStory, storyPoints);
+    		findLogList.set(index, newLog);
+    		//i didnt change the List<Log> cuz i dont think that changes anything -AK
+    	}
+    }
+    
+    //method deletes an effort log entry from an employee's effortlog list -AK
     //logName is the name of the log we want to delete
     public void deleteEffort(Employee employee, String logName)
     {
-    	EffortLogs deleteLog = findEffortLog(employee, logName);//gets the specific log we want to delete
-    	//still need to implement
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	if (findLogList != null)
+    	{
+    		EffortLogs deleteLog = findEffortLog(employee, logName);//gets the specific log we want to delete
+    		if (deleteLog != null)
+    		{
+    			findLogList.remove(deleteLog);
+    		}
+    	}
     }
     
-    //working on this
+    //Vincent could work on this
     public void deleteDefect(String projTitle, String defectName, String category, String defectDescription,
             String status) {
         // idk

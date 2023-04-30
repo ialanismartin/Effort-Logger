@@ -1,7 +1,6 @@
 //this file defines the effort log
 package database;
 
-//captalized the class name because it bothered me - im sorry -AK
 public class EffortLogs extends Log {
     private String name; //added the name attribute -AK
     private String projTitle;
@@ -31,9 +30,9 @@ public class EffortLogs extends Log {
         this.storyPoints = storyPoints;
     }
 
-    
-    public EffortLogs editLog(String name, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints){
-        EffortLogs updatedLog = new EffortLogs(name, projTitle, lifeCycle, category, deliverable, userStory, storyPoints);
+    //made this a static method -AK
+    public static EffortLogs editLog(String logName, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints){
+        EffortLogs updatedLog = new EffortLogs(logName, projTitle, lifeCycle, category, deliverable, userStory, storyPoints);
         return updatedLog;
     }
 
