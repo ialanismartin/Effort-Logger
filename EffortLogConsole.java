@@ -69,7 +69,7 @@ public class EffortLogConsole implements Initializable{
 	
 	private String[] developmentLifeCycle = {"Problem Understanding", "Conceptual Design Plan", "Requirements", "Conceptual Design", "Conceptual Design Review",
 			"Detailed Design Plan", "Detailed Design/Prototype", "Detailed Design Review", "Implementation Plan", "Test Case Generation", "Solution Specification",
-			"Splution Review", "Solution Implementation", "Unit/System Test", "Reflection", "Repository Update"};
+			"Solution Review", "Solution Implementation", "Unit/System Test", "Reflection", "Repository Update"};
 	
 	private String[] storyPoints = {"1","2","3","4","5","6","7","8","9","10"};
 	
