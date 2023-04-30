@@ -79,9 +79,9 @@ public class EffortLogEditor implements Initializable{
 	ResourceBundle arg1;
 	
 	//added the database to the constructor - AK
-	public EffortLogEditor(Database db)
+	public EffortLogEditor()
 	{
-		this.db = db;
+		
 	}
 
 	@Override
@@ -91,6 +91,16 @@ public class EffortLogEditor implements Initializable{
 		projectBox.getItems().addAll(projects);						//add options to project drop down
 		projectBox.setOnAction(this::getProject);					//call action handler for project drop down
 		storyPointsBox.getItems().addAll(storyPoints);				//add story point options
+//		String[] userLogs = this.db.getLogNames();
+//		if (userLogs == null || userLogs.length == 0)
+//		{
+		effortLogEntryBox.setValue("No entries to edit");
+//		}
+//		else
+//		{
+//			effortLogEntryBox.getItems().addAll(userLogs);
+//		}
+		
 		
 	}
 	//action handler for project drop down
