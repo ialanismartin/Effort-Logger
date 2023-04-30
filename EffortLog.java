@@ -44,6 +44,10 @@ public class EffortLog implements Initializable{
 	@FXML
 	TextField searchTextField;
 	@FXML
+	private Label totalStoryPointsLabel;
+	@FXML
+	private TextField totalStoryPointsTextField;
+	@FXML
 	private ChoiceBox <String> filterBox;
 	@FXML
 	private ListView<String> projectListView;
@@ -71,7 +75,7 @@ public class EffortLog implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		//called behind the scenes to initialize controller after it's root element has been processed
 																//use this method to extract data from db and display it in table
-		
+		totalStoryPointsTextField.setEditable(false);
 		
 		
 	}

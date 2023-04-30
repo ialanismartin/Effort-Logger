@@ -41,6 +41,10 @@ public class TeamEffortLog implements Initializable{
 	@FXML
 	private Label userStoryLabel;
 	@FXML
+	private Label totalStoryPointsLabel;
+	@FXML
+	private TextField totalStoryPointsTextField;
+	@FXML
 	TextField searchTextField;
 	@FXML
 	private ChoiceBox <String> filterBox;
@@ -73,7 +77,7 @@ public class TeamEffortLog implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {		//called behind the scenes to initialize controller after it's root element has been processed
 																//use this method to extract data from db and display it in table
-		
+		totalStoryPointsTextField.setEditable(false);
 	}
 	
 	//action handler to change scenes

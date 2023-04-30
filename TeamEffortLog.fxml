@@ -21,12 +21,12 @@
          </font>
       </Label>
       <ChoiceBox fx:id="filterBox" layoutX="14.0" layoutY="128.0" prefHeight="26.0" prefWidth="227.0" />
-      <Label fx:id="searchLabel" layoutX="420.0" layoutY="96.0" text="Search" textFill="#036827">
+      <Label fx:id="searchLabel" layoutX="276.0" layoutY="96.0" text="Search" textFill="#036827">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="searchTextField" layoutX="420.0" layoutY="128.0" prefHeight="26.0" prefWidth="227.0" />
+      <TextField fx:id="searchTextField" layoutX="276.0" layoutY="128.0" prefHeight="26.0" prefWidth="227.0" />
       <Button fx:id="mainMenuBtn" layoutX="836.0" layoutY="109.0" mnemonicParsing="false" onAction="#mainMenuScene" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #036827;" text="Main Menu" textFill="#fafff0">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -85,5 +85,11 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="totalStoryPointsLabel" layoutX="554.0" layoutY="96.0" text="Story Points for Life Cycle Step" textFill="#036827">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="totalStoryPointsTextField" layoutX="554.0" layoutY="128.0" prefHeight="26.0" prefWidth="238.0" />
    </children>
 </AnchorPane>
