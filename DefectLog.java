@@ -1,72 +1,66 @@
-package application;
-import java.io.IOException;
+package database;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class DefectLog extends Log {
+    public String projTitle;
+    public String defectName;
+    public String category;
+    public String defectDescription;
+    public String status;
+    public String stepInjected;
+    public String stepResolved;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+    // changed to empty strings -AK
+    public DefectLog(){
+        this.projTitle = "";
+        this.defectName = "";
+        this.category = "";
+        this.defectDescription = "";
+        this.status = "";
+        this.stepInjected = "";
+        this.stepResolved = "";
+    }
 
-public class DefectLog implements Initializable{
+    public DefectLog(String projTitle, String defectName, String category, String defectDescription, String status, String stepInjected, String stepResolved){
+        this.projTitle = projTitle;
+        this.defectName = defectName;
+        this.category = category;
+        this.defectDescription = defectDescription;
+        this.status = status;
+        this.stepInjected = stepInjected;
+        this.stepResolved = stepResolved;
+    }
 
-	
-	Main m = new Main();
-	@FXML
-	private Label searchLabel;
-	@FXML
-	private Label titleLabel;
-	@FXML
-	private Label filterLabel;
-	@FXML
-	TextField searchTextField;
-	@FXML
-	private ChoiceBox <String> filterBox;
-	@FXML
-	private TableView defectLogTable;
-	@FXML
-	private TableColumn projectColumn;
-	@FXML
-	private TableColumn nameColumn;
-	@FXML
-	private TableColumn statusColumn;
-	@FXML
-	private TableColumn categoryColumn;
-	@FXML
-	private TableColumn injectedColumn;
-	@FXML
-	private TableColumn removedColumn;
-	@FXML
-	private TableColumn descriptionColumn;
-	@FXML
-	private Button mainMenuBtn;
-	
-	public DefectLog()
-	{
-		
-	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) 		//called behind the scenes to initialize controller after it's root element has been processed
-	{															//use this method to add defect info to table from db
-																	
-		
-	}
-	
-	//action handler to change scenes
-	public void mainMenuScene(ActionEvent event) throws IOException
-	{
-		m.changeScene("Dashboard.fxml");
-	}
-	
-	
-	
-	
-	
+    public DefectLog editLog(String projTitle, String defectName, String category, String defectDescription, String status, String stepInjected, String stepResolved){
+        DefectLog updatedLog = new DefectLog(projTitle, defectName, category, defectDescription, status, stepInjected, stepResolved);
+        return updatedLog;
+    }
+
+    public String returnProjectTitle() {
+        return projTitle;
+    }
+
+    public String returnDefectName() {
+        return defectName;
+    }
+
+    public String returnCategory() {
+        return category;
+    }
+
+    public String returnDefectDescription() {
+        return defectDescription;
+    }
+
+    public String returnStatus() {
+        return status;
+    }
+
+    public String returnStepInjected() {
+        return stepInjected;
+    }
+
+    public String returnStepResolved() {
+        return stepResolved;
+    }
 }
