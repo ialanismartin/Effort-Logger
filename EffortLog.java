@@ -1,69 +1,84 @@
-//this file defines the effort log
-package database;
+package application;
 
-//captalized the class name because it bothered me - im sorry -AK
-public class EffortLog extends Log {
-    public String name; //added the name attribute -AK
-    public String projTitle;
-    public String lifeCycleStep;
-    public String category;
-    public String deliverable;
-    public String userStoryComments;
-    public int storyPoints;
+import java.io.IOException;
 
-    public EffortLog(){
-        this.name = "";//changed null to empty string cuz it made more sense -AK
-        this.projTitle = "";
-        this.lifeCycleStep = "";
-        this.category = "";
-        this.deliverable = "";
-        this.userStoryComments = "";
-        this.storyPoints = -1;
-    }
 
-    public EffortLog(String name, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints){
-        this.name = name; //initializing the name attribute -AK
-        this.projTitle = projTitle;
-        this.lifeCycleStep = lifeCycle;
-        this.category = category;
-        this.deliverable = deliverable;
-        this.userStoryComments = userStory;
-        this.storyPoints = storyPoints;
-    }
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    
-    public EffortLog editLog(String name, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints){
-        EffortLog updatedLog = new EffortLog(name, projTitle, lifeCycle, category, deliverable, userStory, storyPoints);
-        return updatedLog;
-    }
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
-    public String returnName() //added a getter for name -AK
-    {
-        return this.name;
-    }
+public class EffortLog implements Initializable{
 
-    public String returnProjectTitle() {
-        return projTitle;
-    }
-
-    public String returnLifeCycleStep() {
-        return lifeCycleStep;
-    }
-
-    public String returnCategory() {
-        return category;
-    }
-
-    public String returnDeliverable() {
-        return deliverable;
-    }
-
-    public String returnUserStoryComments() {
-        return userStoryComments;
-    }
-
-    public int returnStoryPoints() {
-        return storyPoints;
-    }
+	
+	Main m = new Main();
+	@FXML
+	private Label searchLabel;
+	@FXML
+	private Label titleLabel;
+	@FXML
+	private Label projectLabel;
+	@FXML
+	private Label filterLabel;
+	@FXML
+	private Label nameLabel;
+	@FXML
+	private Label lifeCycleLabel;
+	@FXML
+	private Label effortCategoryLabel;
+	@FXML
+	private Label deliverableLabel;
+	@FXML
+	private Label storyPointsLabel;
+	@FXML
+	private Label userStoryLabel;
+	@FXML
+	TextField searchTextField;
+	@FXML
+	private ChoiceBox <String> filterBox;
+	@FXML
+	private ListView<String> projectListView;
+	@FXML
+	private ListView<String> lifeCycleListView;
+	@FXML
+	private ListView<String> effortCategoryListView;
+	@FXML
+	private ListView<String> storyPointsListView;
+	@FXML
+	private ListView<String> deliverableListView;
+	@FXML
+	private ListView<String> userStoryListView;
+	@FXML
+	private ListView<String> nameListView;
+	@FXML
+	private Button mainMenuBtn;
+	
+	public EffortLog()
+	{
+		
+	}
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {		//called behind the scenes to initialize controller after it's root element has been processed
+																//use this method to extract data from db and display it in table
+		
+		
+		
+	}
+	
+	//action handler to change scenes
+	public void mainMenuScene(ActionEvent event) throws IOException
+	{
+		m.changeScene("Dashboard.fxml");
+	}
 }
-

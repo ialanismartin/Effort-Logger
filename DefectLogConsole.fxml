@@ -93,5 +93,10 @@
          </font>
       </Button>
       <TextField fx:id="newDefectTextField" layoutX="759.0" layoutY="128.0" prefHeight="26.0" prefWidth="227.0" />
+      <Label fx:id="errorMessageLabel" layoutX="410.0" layoutY="509.0" textFill="#ff0606">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

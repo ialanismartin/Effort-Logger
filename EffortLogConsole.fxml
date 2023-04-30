@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -18,7 +19,7 @@
       </Label>
       <Label fx:id="projectLabel" layoutX="29.0" layoutY="81.0" text="Project" textFill="#036827">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font size="20.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="projectBox" layoutX="29.0" layoutY="107.0" prefWidth="227.0" />
@@ -66,6 +67,17 @@
          </font>
       </Label>
       <ChoiceBox fx:id="deliverableBox" layoutX="663.0" layoutY="239.0" prefWidth="227.0" />
+      <Label fx:id="nameLabel" layoutX="341.0" layoutY="81.0" text="Name" textFill="#036827">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="341.0" layoutY="108.0" prefHeight="26.0" prefWidth="227.0" />
+      <Label fx:id="errorMessageLabel" layoutX="375.0" layoutY="613.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
    <effect>
       <Glow />

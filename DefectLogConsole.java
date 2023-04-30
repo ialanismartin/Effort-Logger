@@ -29,6 +29,8 @@ public class DefectLogConsole implements Initializable {
 	@FXML
 	private Label titleLabel;
 	@FXML
+	private Label errorMessageLabel;
+	@FXML
 	private Label projectLabel;
 	@FXML
 	private Label defectNameLabel;
@@ -66,7 +68,7 @@ public class DefectLogConsole implements Initializable {
 	
 	private String[] developmentLifeCycle = {"Problem Understanding", "Conceptual Design Plan", "Requirements", "Conceptual Design", "Conceptual Design Review",
 			"Detailed Design Plan", "Detailed Design/Prototype", "Detailed Design Review", "Implementation Plan", "Test Case Generation", "Solution Specification",
-			"Splution Review", "Solution Implementation", "Unit/System Test", "Reflection", "Repository Update"};
+			"Solution Review", "Solution Implementation", "Unit/System Test", "Reflection", "Repository Update"};
 	
 	private String[] defectCategory = {"Not Specified", "10-Documentation", "20-Syntax", "30-Build Package", "40-Assignment", "50-Interface", 
 			"60-Checking", "70-Data", "80-Function", "90-System", "100-Environment"};
@@ -89,7 +91,7 @@ public class DefectLogConsole implements Initializable {
 	}
 	
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {   //called behind the scenes to initialize controller after it's root element has been processed
+	public void initialize(URL arg0, ResourceBundle arg1) {   		//called behind the scenes to initialize controller after it's root element has been processed
 		projectBox.getItems().addAll(projects);						//add options to project drop down
 		projectBox.setOnAction(this::getProject);					//call action handler for project drop down
 		defectCategoryBox.getItems().addAll(defectCategory);		//add options for defect category drop down
@@ -139,25 +141,47 @@ public class DefectLogConsole implements Initializable {
 	//**note: after adding new defect to db, make sure you immediately update defect name drop down to display this change; 
 	public void makeDefectLog(ActionEvent event) throws IOException
 	{
-		project = projectBox.getValue();
-		defectName = newDefectTextField.getText();
-		description = defectDescriptionTextArea.getText();
-		statusCheck = statusBox.getValue();
-		injectionStep = injectionStepsBox.getValue();
-		resolvedStep = resolvedStepsBox.getValue();
-		category = defectCategoryBox.getValue();
+		if(newDefectTextField.getText().toString().isEmpty() && defectNameBox.getItems().isEmpty())
+		{
+			errorMessageLabel.setText("Please Specify Defect Name");
+		}
+		else 
+		{
+			errorMessageLabel.setText("");
+			project = projectBox.getValue();
+			defectName = newDefectTextField.getText();
+			description = defectDescriptionTextArea.getText();
+			statusCheck = statusBox.getValue();
+			injectionStep = injectionStepsBox.getValue();
+			resolvedStep = resolvedStepsBox.getValue();
+			category = defectCategoryBox.getValue();
+			
+			clearDefectLog(event);
+		}
+	
 	}
 	
 	//action handler for update defect button; as of now it extracts all relevant info to be updated in db; populate with code that updates info in db
 	public void updateDefectLog(ActionEvent event) throws IOException
 	{
-		project = projectBox.getValue();
-		defectName = defectNameBox.getValue();
-		description = defectDescriptionTextArea.getText();
-		statusCheck = statusBox.getValue();
-		injectionStep = injectionStepsBox.getValue();
-		resolvedStep = resolvedStepsBox.getValue();
-		category = defectCategoryBox.getValue();
+		if(newDefectTextField.getText().toString().isEmpty() && defectNameBox.getItems().isEmpty())
+		{
+			errorMessageLabel.setText("Please Specify Defect Name");
+		}
+		else
+		{
+			errorMessageLabel.setText("");
+			project = projectBox.getValue();
+			defectName = defectNameBox.getValue();
+			description = defectDescriptionTextArea.getText();
+			statusCheck = statusBox.getValue();
+			injectionStep = injectionStepsBox.getValue();
+			resolvedStep = resolvedStepsBox.getValue();
+			category = defectCategoryBox.getValue();
+			
+			clearDefectLog(event);
+		}
+		
 	
 	}
 	
@@ -179,8 +203,18 @@ public class DefectLogConsole implements Initializable {
 	//**note: after deleting defect, make sure this is reflected in the existing defect names drop down entry drop down
 	public void deleteDefectLog(ActionEvent event) throws IOException
 	{
+		if(newDefectTextField.getText().toString().isEmpty() && defectNameBox.getItems().isEmpty())
+		{
+			errorMessageLabel.setText("Please Specify Defect Name");
+		}
+		else
+		{
+			errorMessageLabel.setText("");
+			defectName = defectNameBox.getValue();			//use this value to find defect in db and add code to delete it 
+			
+			clearDefectLog(event);
+		}
 		
-		defectName = defectNameBox.getValue();			//use this value to find defect in db and add code to delete it 
 		
 	}
 	//action handlers to change scenes

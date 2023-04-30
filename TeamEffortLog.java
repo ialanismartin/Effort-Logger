@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,25 +25,41 @@ public class TeamEffortLog implements Initializable{
 	@FXML
 	private Label filterLabel;
 	@FXML
+	private Label jobTitleLabel;
+	@FXML
+	private Label projectLabel;
+	@FXML
+	private Label nameLabel;
+	@FXML
+	private Label lifeCycleLabel;
+	@FXML
+	private Label effortCategoryLabel;
+	@FXML
+	private Label deliverableLabel;
+	@FXML
+	private Label storyPointsLabel;
+	@FXML
+	private Label userStoryLabel;
+	@FXML
 	TextField searchTextField;
 	@FXML
 	private ChoiceBox <String> filterBox;
 	@FXML
-	private TableView teamEffortLogTable;
+	private ListView<String> projectListView;
 	@FXML
-	private TableColumn jobTitleColumn;
+	private ListView<String> lifeCycleListView;
 	@FXML
-	private TableColumn projectColumn;
+	private ListView<String> effortCategoryListView;
 	@FXML
-	private TableColumn lifeCycleColumn;
+	private ListView<String> storyPointsListView;
 	@FXML
-	private TableColumn categoryColumn;
+	private ListView<String> deliverableListView;
 	@FXML
-	private TableColumn deliverableColumn;
+	private ListView<String> userStoryListView;
 	@FXML
-	private TableColumn storyPointsColumn;
+	private ListView<String> nameListView;
 	@FXML
-	private TableColumn userStoryColumn;
+	private ListView<String> jobTitleListView;
 	@FXML
 	private Button managerMenuBtn;
 	@FXML

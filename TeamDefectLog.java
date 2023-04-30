@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,25 +27,39 @@ public class TeamDefectLog implements Initializable{
 	@FXML
 	TextField searchTextField;
 	@FXML
+	private Label projectLabel;
+	@FXML
+	private Label nameLabel;
+	@FXML
+	private Label defectCategoryLabel;
+	@FXML
+	private Label statusLabel;
+	@FXML
+	private Label injectedLabel;
+	@FXML
+	private Label descriptionLabel;
+	@FXML
+	private Label removedLabel;
+	@FXML
+	private Label jobTitleLabel;
+	@FXML
 	private ChoiceBox <String> filterBox;
 	@FXML
-	private TableView teamDefectLogTable;
+	private ListView<String> projectListView;
 	@FXML
-	private TableColumn jobTitleColumn;
+	private ListView<String> statusListView;
 	@FXML
-	private TableColumn projectColumn;
+	private ListView<String> defectCategoryListView;
 	@FXML
-	private TableColumn nameColumn;
+	private ListView<String> descriptionListView;
 	@FXML
-	private TableColumn statusColumn;
+	private ListView<String> injectedListView;
 	@FXML
-	private TableColumn categoryColumn;
+	private ListView<String>removedListView;
 	@FXML
-	private TableColumn injectedColumn;
+	private ListView<String> nameListView;
 	@FXML
-	private TableColumn removedColumn;
-	@FXML
-	private TableColumn descriptionColumn;
+	private ListView<String> jobTitleListView;
 	@FXML
 	private Button managerMenuBtn;
 	@FXML

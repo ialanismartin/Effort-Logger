@@ -1,66 +1,85 @@
-package database;
+package application;
+import java.io.IOException;
 
-public class DefectLog extends Log {
-    public String projTitle;
-    public String defectName;
-    public String category;
-    public String defectDescription;
-    public String status;
-    public String stepInjected;
-    public String stepResolved;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    // changed to empty strings -AK
-    public DefectLog(){
-        this.projTitle = "";
-        this.defectName = "";
-        this.category = "";
-        this.defectDescription = "";
-        this.status = "";
-        this.stepInjected = "";
-        this.stepResolved = "";
-    }
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
-    public DefectLog(String projTitle, String defectName, String category, String defectDescription, String status, String stepInjected, String stepResolved){
-        this.projTitle = projTitle;
-        this.defectName = defectName;
-        this.category = category;
-        this.defectDescription = defectDescription;
-        this.status = status;
-        this.stepInjected = stepInjected;
-        this.stepResolved = stepResolved;
-    }
+public class DefectLog implements Initializable{
 
+	
+	Main m = new Main();
+	@FXML
+	private Label searchLabel;
+	@FXML
+	private Label titleLabel;
+	@FXML
+	private Label filterLabel;
+	@FXML
+	TextField searchTextField;
+	@FXML
+	private ChoiceBox <String> filterBox;
+	@FXML
+	private Label projectLabel;
+	@FXML
+	private Label nameLabel;
+	@FXML
+	private Label defectCategoryLabel;
+	@FXML
+	private Label statusLabel;
+	@FXML
+	private Label injectedLabel;
+	@FXML
+	private Label descriptionLabel;
+	@FXML
+	private Label removedLabel;
+	@FXML
+	private ListView<String> projectListView;
+	@FXML
+	private ListView<String> statusListView;
+	@FXML
+	private ListView<String> defectCategoryListView;
+	@FXML
+	private ListView<String> descriptionListView;
+	@FXML
+	private ListView<String> injectedListView;
+	@FXML
+	private ListView<String>removedListView;
+	@FXML
+	private ListView<String> nameListView;
+	@FXML
+	private Button mainMenuBtn;
+	
+	public DefectLog()
+	{
+		
+	}
 
-    public DefectLog editLog(String projTitle, String defectName, String category, String defectDescription, String status, String stepInjected, String stepResolved){
-        DefectLog updatedLog = new DefectLog(projTitle, defectName, category, defectDescription, status, stepInjected, stepResolved);
-        return updatedLog;
-    }
-
-    public String returnProjectTitle() {
-        return projTitle;
-    }
-
-    public String returnDefectName() {
-        return defectName;
-    }
-
-    public String returnCategory() {
-        return category;
-    }
-
-    public String returnDefectDescription() {
-        return defectDescription;
-    }
-
-    public String returnStatus() {
-        return status;
-    }
-
-    public String returnStepInjected() {
-        return stepInjected;
-    }
-
-    public String returnStepResolved() {
-        return stepResolved;
-    }
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) 		//called behind the scenes to initialize controller after it's root element has been processed
+	{															//use this method to add defect info to table from db
+																	
+		
+	}
+	
+	//action handler to change scenes
+	public void mainMenuScene(ActionEvent event) throws IOException
+	{
+		m.changeScene("Dashboard.fxml");
+	}
+	
+	
+	
+	
+	
 }

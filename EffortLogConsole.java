@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class EffortLogConsole implements Initializable{
 	
@@ -35,6 +36,8 @@ public class EffortLogConsole implements Initializable{
 	@FXML
 	private Label titleLabel;
 	@FXML
+	private Label nameLabel;
+	@FXML
 	private Label projectLabel;
 	@FXML
 	private Label lifeCycleLabel;
@@ -47,7 +50,11 @@ public class EffortLogConsole implements Initializable{
 	@FXML
 	private Label userStoryLabel;
 	@FXML
+	private Label errorMessageLabel;
+	@FXML
 	private TextArea userStoryTextArea;
+	@FXML
+	private TextField nameTextField;
 	@FXML
 	private Button mainMenuBtn;
 	@FXML
@@ -72,6 +79,7 @@ public class EffortLogConsole implements Initializable{
 	private String deliverable;
 	private String userStory;
 	private String points;
+	private String name;
 	URL arg0;
 	ResourceBundle arg1;
 	
@@ -190,20 +198,31 @@ public class EffortLogConsole implements Initializable{
 		deliverableBox.getItems().clear();
 		storyPointsBox.getItems().clear();
 		userStoryTextArea.clear();
-		
+		nameTextField.clear();
 		initialize(arg0,arg1);
 	}
 	
 	//action handler for make effort log button; extracts all relevant info for db; populate with more code to add info to db
 	public void makeEffortLog(ActionEvent event) throws IOException
 	{
-		lifeCycle = lifeCycleBox.getValue();	
-		project = projectBox.getValue();	
-		category = categoryBox.getValue();
-		deliverable = deliverableBox.getValue();
-		userStory = userStoryTextArea.getText();
-		points = storyPointsBox.getValue();
-		clearEffortLog(event);
+		
+		if(nameTextField.getText().toString().isEmpty())		//check to make sure user has entered effort name
+		{
+			errorMessageLabel.setText("Please Enter Effort Name");
+		}
+		else 							//this is where info is extracted to store into database IFF user has entered effort name
+		{
+			errorMessageLabel.setText("");
+			lifeCycle = lifeCycleBox.getValue();	
+			project = projectBox.getValue();	
+			category = categoryBox.getValue();
+			deliverable = deliverableBox.getValue();
+			userStory = userStoryTextArea.getText();
+			points = storyPointsBox.getValue();
+			name = nameTextField.getText();
+			clearEffortLog(event);
+		}
+		
 	}
 		
 	//action handlers to change scenes
