@@ -38,6 +38,11 @@
             <Font size="20.0" />
          </font></Button>
       <TextField fx:id="jobTitleTextField" layoutX="387.0" layoutY="226.0" prefWidth="227.0" />
+      <Label fx:id="errorMessageLabel" alignment="CENTER" layoutX="279.0" layoutY="172.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
    <effect>
       <Glow />
