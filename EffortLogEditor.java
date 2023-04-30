@@ -74,12 +74,14 @@ public class EffortLogEditor implements Initializable{
 	private String userStory;
 	private String points;
 	private String effortEntryName;
+	private Database db;
 	URL arg0;
 	ResourceBundle arg1;
 	
-	public EffortLogEditor()
+	//added the database to the constructor - AK
+	public EffortLogEditor(Database db)
 	{
-		
+		this.db = db;
 	}
 
 	@Override

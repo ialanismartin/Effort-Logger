@@ -1,17 +1,25 @@
-package database;
+package application;
 import java.util.*;
 
 public class Database {
     //attributes
-    HashMap<Employee, List<Log>> EffortLoggerdatabase;
-    int numOfEmployees;
-    String loggedUser;
+    private HashMap<Employee, List<Log>> EffortLoggerdatabase;
+    private int numOfEmployees;
+    private String loggedUser;
 
-
-    public Database() {
-        EffortLoggerdatabase = new HashMap<Employee, List<Log>>();
-        numOfEmployees = 0;
+    //need to set the current user that is logged in at the beginning of the database -AK - > i used loggedUesr to get the employee needed
+    public Database(String username) {
+        this.EffortLoggerdatabase = new HashMap<Employee, List<Log>>();
+        this.numOfEmployees = 0;
+        this.loggedUser = username;
+        
     }
+    
+    public void setLoggedUser(String username)
+    {
+    	loggedUser = username;
+    }
+    
     
     //ok so create an employee object outside of this method and then put the employee/empty log list into database
     public void signUp(Employee newEmployee, List<Log> employeesLogs) {
@@ -21,27 +29,24 @@ public class Database {
     }
     
     //method finds the effort log list of a given employee - returns null if no such employee exists -AK
-    public List<EffortLogs> findEmployeeEffortLogList(Employee employee)
+    public List<EffortLogs> findEmployeeEffortLogList()
     {
-    	if (employee != null)
-    	{
-    		for (Map.Entry<Employee, List<Log>> employeeElement : EffortLoggerdatabase.entrySet()) { 
-    			 
-                if (employeeElement.getKey().username == employee.username)
-                {
-                	return employeeElement.getKey().employeeEffortLogs; //finding the correct employee's list of effort logs
+    	for (Map.Entry<Employee, List<Log>> employeeElement : EffortLoggerdatabase.entrySet()) { 
+    			
+    		if (employeeElement.getKey().username == this.loggedUser)
+            {
+            return employeeElement.getKey().employeeEffortLogs; //finding the correct employee's list of effort logs
                 	
-                }
-        	}
-    	}
+            }
+        }
     	return null;
     }
     
     // this search method returns an effort log that lines up with a specific log name (not employee name, the name of the log entry) -AK
     // used in deleteEffort() method
-    public EffortLogs findEffortLog(Employee employee, String logName)
+    public EffortLogs findEffortLog(String logName)
     {
-    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList();
     	
     	if (findLogList != null)
     	{
@@ -60,10 +65,10 @@ public class Database {
     
     
     //finds the index in the EffortLog list of an effort log that lines up with a specific logName -AK
-    public int findEffortLogIndex(Employee employee, String logName)
+    public int findEffortLogIndex(String logName)
     {
     	int index = 0;
-    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList();
     	if (findLogList != null)
     	{
     		while (index < findLogList.size() && findLogList.get(index).returnName() != logName)
@@ -86,10 +91,10 @@ public class Database {
     
     // creating the filter function in the effort log console - AK
     // this just filters out the effort log entries that we want to display in the GUI and places them in an array list
-    public ArrayList<EffortLogs> filterDatabase(Employee employee, String lifecycleStep)
+    public ArrayList<EffortLogs> filterDatabase(String lifecycleStep)
     {
     	ArrayList<EffortLogs> filterArray = new ArrayList<EffortLogs>(); //array of all the logs that have the correct lifecycle step
-    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee); //getting the correct employee's list of logs
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList(); //getting the correct employee's list of logs
     	if (findLogList != null)
     	{
     		for (EffortLogs log : findLogList)
@@ -109,10 +114,10 @@ public class Database {
     
     //creating the search function in the effort log console - AK
     //this just filters out the effort log entries that we want to display in the GUI and places them in an array list
-    public ArrayList<EffortLogs> searchDatabase(Employee employee, String keyWord)
+    public ArrayList<EffortLogs> searchDatabase(String keyWord)
     {
     	ArrayList<EffortLogs> searchArray = new ArrayList<EffortLogs>(); //array of all the logs that have the correct lifecycle step
-    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee); //getting the correct employee's list of logs
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList(); //getting the correct employee's list of logs
     	if (findLogList != null)
     	{
     		for (EffortLogs log : findLogList)
@@ -150,10 +155,10 @@ public class Database {
     
     //returns a String array of names ->used in the effort log editor drop down -AK
     //need to figure out what to do if there are no entries in the effort log list
-    public String[] getLogNames(Employee employee)
+    public String[] getLogNames()
     {
     	String[] logNameArray = null;
-    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList();
     	if (findLogList != null)
     	{
     		logNameArray = new String[findLogList.size()];
@@ -166,12 +171,12 @@ public class Database {
     }
     
     //finds the index of the log that needs to be edited and replaces the old log with an edited version -AK
-    public void editEffortLog(Employee employee, String logName, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints)
+    public void editEffortLog(String logName, String projTitle, String lifeCycle, String category, String deliverable, String userStory, int storyPoints)
     {
-    	int index = findEffortLogIndex(employee, logName);
+    	int index = findEffortLogIndex(logName);
     	if (index != 1)
     	{
-    		List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    		List<EffortLogs> findLogList = findEmployeeEffortLogList();
     		EffortLogs newLog = EffortLogs.editLog(logName, projTitle, lifeCycle, category, deliverable, userStory, storyPoints);
     		findLogList.set(index, newLog);
     		//i didnt change the List<Log> cuz i dont think that changes anything -AK
@@ -180,12 +185,12 @@ public class Database {
     
     //method deletes an effort log entry from an employee's effortlog list -AK
     //logName is the name of the log we want to delete
-    public void deleteEffort(Employee employee, String logName)
+    public void deleteEffort(String logName)
     {
-    	List<EffortLogs> findLogList = findEmployeeEffortLogList(employee);
+    	List<EffortLogs> findLogList = findEmployeeEffortLogList();
     	if (findLogList != null)
     	{
-    		EffortLogs deleteLog = findEffortLog(employee, logName);//gets the specific log we want to delete
+    		EffortLogs deleteLog = findEffortLog(logName);//gets the specific log we want to delete
     		if (deleteLog != null)
     		{
     			findLogList.remove(deleteLog);

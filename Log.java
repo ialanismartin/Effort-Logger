@@ -1,4 +1,4 @@
-package database;
+package application;
 public class Log {
     //this is an empty superclass
 

@@ -1,4 +1,4 @@
-package database;
+package application;
 
 public class DefectLogs extends Log {
     public String projTitle;

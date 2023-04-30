@@ -1,5 +1,5 @@
 //this class defines an Employee, which will be the primary object of the hashtable. The secondary object(s) are the logs
-package database;
+package application;
 import java.util.*;
 
 public class Employee {

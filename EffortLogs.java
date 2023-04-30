@@ -1,5 +1,5 @@
 //this file defines the effort log
-package database;
+package application;
 
 public class EffortLogs extends Log {
     private String name; //added the name attribute -AK
